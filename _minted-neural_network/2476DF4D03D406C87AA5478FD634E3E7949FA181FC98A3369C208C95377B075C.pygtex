@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{feedforward}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{a}\PYG{p}{):}
+  \PYG{k}{for} \PYG{n}{b}\PYG{p}{,} \PYG{n}{w} \PYG{o+ow}{in} \PYG{n+nb}{zip}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{biases}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weights}\PYG{p}{):}
+    \PYG{n}{a} \PYG{o}{=} \PYG{n}{sigmoid}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{w}\PYG{p}{,} \PYG{n}{a}\PYG{p}{)}\PYG{o}{+}\PYG{n}{b}\PYG{p}{)}
+  \PYG{k}{return} \PYG{n}{a}
+\end{Verbatim}
