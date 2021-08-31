@@ -304,8 +304,29 @@ Nu moeten we de mnist data laden in de vorm van tuples, zoals ze hier gebruikt w
 \newpage
 
 \section{Google Crash Course}
+De eerste 95 minuten aan les gaan over evidente dingen en dingen die we in de vorige sectie gezien hebben (zoals cost function, gradiant descent, learning rate,...). Het deel van TensorFlow gaat echter over de high-level API\footnote{application programming interface} tf.keras wat de TensorFlow variant is van het open-source Keras API. Het gebruik hiervan vereist een bepaalde kennis van numpy en pandas, aangezien ik redelijk vloeiend ben in numpy zal ik hier enkel de notes van pandas deponeren:
+\subsecion{Pandas}
+\begin{minted}{python}
+import numpy as np
+import pandas as pd
 
+#genereer een 3X4 pandas DataFrame met kolommen Eleanor, Chidi, Tahani en Jason
+data = np.random.randint(101, size=(3,4))
+KolomNamen = ['Eleanor','Chidi','Tahani','Jason']
+DataFrame = pd.DataFrame(data=data,columns=KolomNamen)
+
+#print voll dataframe:
+print(DataFrame)
+
+#print waarde van 1ste rij van de Eleanor kolom:
+print(DataFrame['Eleanor'].iloc[[1]])
+
+#maak een 5de kolom Janet die de waarde heeft van Tahani+Jason:
+DataFrame['Janet'] = DataFrame['Tahani'] + DataFrame['Jason']                                                  
+\end{minted}
+\subsecion{Linear regression with tf.keras}
+
+\newpage
 \bibliography{bronnen}
 \bibliographystyle{plain}
-
 \end{document}
