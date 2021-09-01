@@ -13,6 +13,8 @@
 \usepackage[cache=false]{minted}
 \usepackage{tcolorbox}
 \usepackage{etoolbox}
+\usepackage{pgfplotstable,filecontents}
+\pgfplotsset{compat=1.9}% supress warning
 \BeforeBeginEnvironment{minted}{\begin{tcolorbox}[colback=yellow!5!white]}%
 \AfterEndEnvironment{minted}{\end{tcolorbox}}%
 \setlength\paperwidth{20.999cm}\setlength\paperheight{29.699cm}\setlength\voffset{-1in}\setlength\hoffset{-1in}\setlength\topmargin{1.499cm}\setlength\headheight{12pt}\setlength\headsep{0cm}\setlength\footskip{1.131cm}\setlength\textheight{25cm}\setlength\oddsidemargin{2.499cm}\setlength\textwidth{15.999cm}
@@ -324,8 +326,62 @@ print(DataFrame['Eleanor'].iloc[[1]])
 #maak een 5de kolom Janet die de waarde heeft van Tahani+Jason:
 DataFrame['Janet'] = DataFrame['Tahani'] + DataFrame['Jason']                                                  
 \end{minted}
+
 \subsecion{Linear regression with tf.keras}
 
+Hierbij wordt geëxperimenteerd met de zogenaamde "hyperparameters" (i.e de "learning rate", het aantal epochs en de mini-batch grootte) om zo optimaal mogelijk een rechte te fitten aan een gegeven dataset. De code hiervoor wordt nog niet verwacht om begrepen te worden en wordt dus voor later gehouden. In deze cursus wordt met de squared loss ($L_2$ loss) gewerkt als verliesfunctie $(observatie - voorspelling(x))^2$, enkele goede technieken om te weten of je goede hyperparameters hebt gekozen zijn dan:
+\begin{itemize}
+	\item het verlies daalt gelijkmatig, eerst snel dan trager (zie figuur \ref{verliesfunctie})
+	\item als de verliesfunctie niet convergeerd $\rightarrow$ meer epochs
+	\item te traag dalende verliesfunctie $\rightarrow$ grotere learning rate (niet te groot anders geen convergentie)
+	\item als de verliesfunctie veel varieërt (rondspringt) $\rightarrow$ lagere learning rate
+	\item het verlagen van de learing rate + verhogen v/h aantal epochs/grootte mini-batcehs is vaak een goede combo
+	\item de batchgrootte te klein maken kan ook voor problemen zorgen. Werk groot $\rightarrow$ klein tot ze raar doet
+	\item Soms is de dataset zo groot dat ze ni in uw ram past, hou daar rekening mee en neem een geschikte mini-batch
+\end{itemize}
+\begin{figure}
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{LinearRegression.png}
+        \caption{Lineaire regressie}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{LinearRegressionCost.png}
+	\caption{verliesfunctie}
+	\label{verliesfunctie}
+    \end{minipage}
+\end{figure}
+Een echte dataset komt vaak in .csv (comma seperated values) formaat, dewelke er als volgt uit zien:
+\\\\
+\begin{table}[]
+\begin{tabular}{lllllll}
+longitude   & latitude  & housing\_median\_age & total\_rooms & population  & median\_income & median\_house\_value \\
+\hline
+\\
+-114.310000 & 34.190000 & 15.000000            & 5612.000000  & 1015.000000 & 1.493600       & 66900.000000         \\
+-114.470000 & 34.400000 & 19.000000            & 7650.000000  & 1129.000000 & 1.820000       & 80100.000000         \\
+-114.560000 & 33.690000 & 17.000000            & 720.000000   & 333.000000  & 1.650900       & 85700.000000         \\
+-114.570000 & 33.640000 & 14.000000            & 1501.000000  & 515.000000  & 3.191700       & 73400.000000        
+\end{tabular}
+\end{table}
+\\\\
+Uit "Linear regression with a real dataset" leren we deze csv openenmet pandas en dat je moet oppassen met het gebruik van data  met rare waarden (bv. gemiddelde van 2600, met 25,50 en 75 percentiel onder 3100 maar wel een maximum van 38000). Nu kunnen we statistiek gebruiken om te kijken welke data corelleert met ons label. Een correlatiematrix indiceert hoeveel 2 datawaardes met elkaar gemeen hebben met als betekenis:
+\begin{itemize}
+	\item 1.0 perfecte correlatie (data 1 stijgt $\rightarrow$ data 2 stijgt)
+	\item -1 perfecte negatieve correlatie (data 1 stijgt $\rightarrow$ data 2 daalt)
+	\item 0.0 geen correlatie (niet lineair gerelateerd)
+\end{itemize}
+Zo'n matrix kan gemakkelijk met pandas worden gegenereerd, hebben we bv een csv bestand ingeladen:
+\begin{minted}{python}
+training_df = pd.read_csv(filepath_or_buffer=
+  "https://download.mlcc.google.com/mledu-datasets/california_housing_train.csv")	
+\end{minted}
+Dan vinden we de correlatiematrix mbv
+\begin{minted}{python}
+	training_df.corr()
+\end{minted}
 \newpage
 \bibliography{bronnen}
 \bibliographystyle{plain}
