@@ -367,7 +367,7 @@ longitude   & latitude  & housing\_median\_age & total\_rooms & population  & me
 \end{tabular}
 \end{table}
 \\\\
-Uit "Linear regression with a real dataset" leren we deze csv openenmet pandas en dat je moet oppassen met het gebruik van data  met rare waarden (bv. gemiddelde van 2600, met 25,50 en 75 percentiel onder 3100 maar wel een maximum van 38000). Nu kunnen we statistiek gebruiken om te kijken welke data corelleert met ons label. Een correlatiematrix indiceert hoeveel 2 datawaardes met elkaar gemeen hebben met als betekenis:
+Uit "Linear regression with a real dataset" leren we deze csv openen met pandas en dat je moet oppassen met het gebruik van data  met rare waarden (bv. gemiddelde van 2600, met 25,50 en 75 percentiel onder 3100 maar wel een maximum van 38000). Nu kunnen we statistiek gebruiken om te kijken welke data corelleert met ons label. Een correlatiematrix indiceert hoeveel 2 datawaardes met elkaar gemeen hebben met als betekenis:
 \begin{itemize}
 	\item 1.0 perfecte correlatie (data 1 stijgt $\rightarrow$ data 2 stijgt)
 	\item -1 perfecte negatieve correlatie (data 1 stijgt $\rightarrow$ data 2 daalt)
@@ -382,6 +382,13 @@ Dan vinden we de correlatiematrix mbv
 \begin{minted}{python}
 	training_df.corr()
 \end{minted}
+Als we een model opbouwen moeten we 'overfitting' in acht nemen. Dit is het fenomeen waarbij, als we het model complexer maken dan nodig, de fout zeer laag ligt bij de training data maar dat bij testdata ze zeer slecht scoort. We dienen hierom maken dat de data zo simpel mogelijk wordt 'gefit'. Een manier om dit te testen is om de data in een {\bf training set} en een {\bf test set} te verdelen.De volgende 3 basisaannames zorgen tot algemeenheid:
+\begin{itemize}
+\item We nemen voorbeelden onafhankelijk en gelijk {\bf(independently and identically 'i.i.d')} at random uit de verdeling. m.a.w, voorbeelden hebben geen invloed op elkaar. In de echte wereld willen we dit bij uitzonderlijke gevallen niet (als bijvoorbeeld welke reclame te tonen aan iemand).
+\item De verdeling is stationair {(\bf stationary)}, i.e de distributie verandert niet binnen de dataset. Dit is niet het geval bij bijvoorbeeld seizoensshoppen. 
+	\item We nemen voorbeelden uit partities van eenzelfde distributie
+\end{itemize}
+
 \newpage
 \bibliography{bronnen}
 \bibliographystyle{plain}
