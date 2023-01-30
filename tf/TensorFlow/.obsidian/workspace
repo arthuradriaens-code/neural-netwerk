@@ -1,0 +1,136 @@
+{
+  "main": {
+    "id": "c58cffb6249efb2c",
+    "type": "split",
+    "children": [
+      {
+        "id": "5311bbded877a800",
+        "type": "leaf",
+        "state": {
+          "type": "graph",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "85d3dade4909b639",
+    "type": "split",
+    "children": [
+      {
+        "id": "fd220860ff217fa1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5d0b8aa266f95c55",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "0cf5a9889cc61f18",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "87e56518cab81924",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "160a1ad232df7aab",
+    "type": "split",
+    "children": [
+      {
+        "id": "d44951ebb257f39d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2dc619849754c0b8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3260c46ab71c3130",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4c791890676e1989",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "2e4660fe1f82c114",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "5311bbded877a800",
+  "lastOpenFiles": [
+    "Overview.md",
+    "5, 3, 2, 4], [5, 3, 2, 7], [6, 3, 2, 4, 8, 6, 9, 2, 4, 10, 11.md",
+    "Natural Language Processing (NLP).md",
+    "Image augmentation.md",
+    "Labeling.md",
+    "N(not n)umbers.py.md",
+    "Eplanation of fashion.py.md",
+    "Explanation of FashionConvo.py.md",
+    "Explanation of helloworld.py.md",
+    "pooling.md"
+  ]
+}

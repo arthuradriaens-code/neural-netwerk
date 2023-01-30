@@ -1,0 +1,8 @@
+\BOOKMARK [1][-]{section.1}{Perceptrons}{}% 1
+\BOOKMARK [1][-]{section.2}{sigmoid neuron}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{benaming}{section.2}% 3
+\BOOKMARK [1][-]{section.3}{een simpel netwerk om handgeschreven cijfers te classificeren}{}% 4
+\BOOKMARK [1][-]{section.4}{Leren met gradient descent}{}% 5
+\BOOKMARK [2][-]{subsection.4.1}{Mathematische schrijfwijze}{section.4}% 6
+\BOOKMARK [1][-]{section.5}{Implementeren van ons netwerk om getallen te classificeren}{}% 7
+\BOOKMARK [1][-]{section.6}{Google Crash Course}{}% 8
